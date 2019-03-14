@@ -94,7 +94,7 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <WarningLevel>Level3</WarningLevel>
       <MinimalRebuild>true</MinimalRebuild>
-      <AdditionalIncludeDirectories>..\..\..\ASIOSDK2.3.2\common;..\..\common;..\..\common\jack;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\ASIOSDK2.3.2\common;..\..\windows;..\..\common;..\..\common\jack;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AssemblerListingLocation>.\Debug\</AssemblerListingLocation>
       <BrowseInformation>true</BrowseInformation>
@@ -137,7 +137,7 @@
       <Optimization>Disabled</Optimization>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>..\..\..\ASIOSDK2.3.2\common;..\..\common;..\..\common\jack;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\ASIOSDK2.3.2\common;..\..\windows;..\..\common;..\..\common\jack;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AssemblerListingLocation>.\Debug\</AssemblerListingLocation>
       <BrowseInformation>true</BrowseInformation>
@@ -180,7 +180,7 @@
       <Optimization>MaxSpeed</Optimization>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>..\..\..\ASIOSDK2.3.2\common;..\..\common;..\..\common\jack;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\ASIOSDK2.3.2\common;..\..\windows;..\..\common;..\..\common\jack;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AssemblerListingLocation>.\Release\</AssemblerListingLocation>
       <BrowseInformation>true</BrowseInformation>
@@ -222,7 +222,7 @@
       <Optimization>MaxSpeed</Optimization>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>..\..\..\ASIOSDK2.3.2\common;..\..\common;..\..\common\jack;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\ASIOSDK2.3.2\common;..\..\windows;..\..\common;..\..\common\jack;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;PSAPI_VERSION=2;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AssemblerListingLocation>.\Release\</AssemblerListingLocation>
       <BrowseInformation>true</BrowseInformation>
@@ -257,6 +257,41 @@
   <ItemGroup>
     <ClCompile Include="..\..\..\ASIOSDK2.3.2\common\combase.cpp" />
     <ClCompile Include="..\..\..\ASIOSDK2.3.2\common\dllentry.cpp" />
+    <ClCompile Include="..\..\common\JackActivationCount.cpp" />
+    <ClCompile Include="..\..\common\JackAPI.cpp" />
+    <ClCompile Include="..\..\common\JackAudioPort.cpp" />
+    <ClCompile Include="..\..\common\JackClient.cpp" />
+    <ClCompile Include="..\..\common\JackConnectionManager.cpp" />
+    <ClCompile Include="..\..\common\JackEngineControl.cpp" />
+    <ClCompile Include="..\..\common\JackEngineProfiling.cpp" />
+    <ClCompile Include="..\..\common\JackError.cpp" />
+    <ClCompile Include="..\..\common\JackException.cpp" />
+    <ClCompile Include="..\..\common\JackFrameTimer.cpp" />
+    <ClCompile Include="..\..\common\JackGenericClientChannel.cpp" />
+    <ClCompile Include="..\..\common\JackGlobals.cpp" />
+    <ClCompile Include="..\..\common\JackGraphManager.cpp" />
+    <ClCompile Include="..\..\common\JackLibAPI.cpp" />
+    <ClCompile Include="..\..\common\JackLibClient.cpp" />
+    <ClCompile Include="..\..\common\JackMessageBuffer.cpp" />
+    <ClCompile Include="..\..\common\JackMetadata.cpp" />
+    <ClCompile Include="..\..\common\JackMidiAPI.cpp" />
+    <ClCompile Include="..\..\common\JackMidiPort.cpp" />
+    <ClCompile Include="..\..\common\JackPort.cpp" />
+    <ClCompile Include="..\..\common\JackPortType.cpp" />
+    <ClCompile Include="..\..\common\JackShmMem.cpp" />
+    <ClCompile Include="..\..\common\JackTools.cpp" />
+    <ClCompile Include="..\..\common\JackTransportEngine.cpp" />
+    <ClCompile Include="..\..\common\ringbuffer.c" />
+    <ClCompile Include="..\..\common\shm.c" />
+    <ClCompile Include="..\JackMMCSS.cpp" />
+    <ClCompile Include="..\JackWinMutex.cpp" />
+    <ClCompile Include="..\JackWinNamedPipe.cpp" />
+    <ClCompile Include="..\JackWinNamedPipeClientChannel.cpp" />
+    <ClCompile Include="..\JackWinProcessSync.cpp" />
+    <ClCompile Include="..\JackWinSemaphore.cpp" />
+    <ClCompile Include="..\JackWinServerLaunch.cpp" />
+    <ClCompile Include="..\JackWinThread.cpp" />
+    <ClCompile Include="..\JackWinTime.c" />
     <ClCompile Include="JackRouter.cpp" />
     <ClCompile Include="profport.cpp" />
     <ClCompile Include="..\..\..\ASIOSDK2.3.2\common\register.cpp" />
@@ -272,10 +307,38 @@
     <ClInclude Include="..\..\..\ASIOSDK2.3.2\common\asiosys.h" />
     <ClInclude Include="..\..\..\ASIOSDK2.3.2\common\combase.h" />
     <ClInclude Include="..\..\..\ASIOSDK2.3.2\common\iasiodrv.h" />
+    <ClInclude Include="..\..\common\JackActivationCount.h" />
+    <ClInclude Include="..\..\common\JackClient.h" />
+    <ClInclude Include="..\..\common\JackConnectionManager.h" />
+    <ClInclude Include="..\..\common\JackEngineControl.h" />
+    <ClInclude Include="..\..\common\JackEngineProfiling.h" />
+    <ClInclude Include="..\..\common\JackError.h" />
+    <ClInclude Include="..\..\common\JackException.h" />
+    <ClInclude Include="..\..\common\JackFrameTimer.h" />
+    <ClInclude Include="..\..\common\JackGenericClientChannel.h" />
+    <ClInclude Include="..\..\common\JackGlobals.h" />
+    <ClInclude Include="..\..\common\JackGraphManager.h" />
+    <ClInclude Include="..\..\common\JackLibClient.h" />
+    <ClInclude Include="..\..\common\JackMessageBuffer.h" />
+    <ClInclude Include="..\..\common\JackMetadata.h" />
+    <ClInclude Include="..\..\common\JackMidiPort.h" />
+    <ClInclude Include="..\..\common\JackPort.h" />
+    <ClInclude Include="..\..\common\JackPortType.h" />
+    <ClInclude Include="..\..\common\JackShmMem.h" />
+    <ClInclude Include="..\..\common\JackTools.h" />
+    <ClInclude Include="..\..\common\JackTransportEngine.h" />
+    <ClInclude Include="..\..\common\shm.h" />
+    <ClInclude Include="..\JackAtomic_os.h" />
+    <ClInclude Include="..\JackCompilerDeps_os.h" />
+    <ClInclude Include="..\JackMMCSS.h" />
+    <ClInclude Include="..\JackWinMutex.h" />
+    <ClInclude Include="..\JackWinNamedPipe.h" />
+    <ClInclude Include="..\JackWinNamedPipeClientChannel.h" />
+    <ClInclude Include="..\JackWinProcessSync.h" />
+    <ClInclude Include="..\JackWinSemaphore.h" />
+    <ClInclude Include="..\JackWinThread.h" />
   </ItemGroup>
   <ItemGroup>
-    <Library Include="..\Release64\bin\libjack64.lib" />
-    <Library Include="..\Release\bin\libjack.lib" />
     <Library Include="Psapi.Lib" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

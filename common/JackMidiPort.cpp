@@ -100,7 +100,10 @@ static void MidiBufferMixdown(void* mixbuffer, void** src_buffers, int src_count
     }
     mix->Reset(nframes);
 
-    uint32_t mix_index[src_count];
+	/* FIXME: Temporary workaround for build error on Visual Studio 2017 */
+    uint32_t mix_index[256];
+	if (src_count > 256) src_count = 256;
+
     int event_count = 0;
     for (int i = 0; i < src_count; ++i) {
         JackMidiBuffer* buf = static_cast<JackMidiBuffer*>(src_buffers[i]);

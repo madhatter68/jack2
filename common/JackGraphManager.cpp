@@ -24,7 +24,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 #include <assert.h>
 #include <stdlib.h>
 #include <algorithm>
-#include <regex.h>
+//#include <regex.h>
 
 namespace Jack
 {
@@ -809,7 +809,7 @@ void JackGraphManager::GetPortsAux(const char** matching_ports, const char* port
 {
     // Cleanup port array
     memset(matching_ports, 0, sizeof(char*) * fPortMax);
-
+#if 0 // FIXME: Temporary workaround to build on Visual Studio 2017
     int match_cnt = 0;
     regex_t port_regex, type_regex;
 
@@ -863,6 +863,7 @@ void JackGraphManager::GetPortsAux(const char** matching_ports, const char* port
     if (type_name_pattern && type_name_pattern[0]) {
         regfree(&type_regex);
     }
+#endif
 }
 
 // Client

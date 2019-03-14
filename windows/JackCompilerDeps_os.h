@@ -21,7 +21,9 @@
 #ifndef __JackCompilerDeps_WIN32__
 #define __JackCompilerDeps_WIN32__
 
-#define	LIB_EXPORT __declspec(dllexport)
+//FIXME: Temporary fix to build static version of JackRouter.dll
+//#define	LIB_EXPORT __declspec(dllexport)
+#define	LIB_EXPORT
 
 #ifdef SERVER_SIDE
     #define	SERVER_EXPORT __declspec(dllexport)
