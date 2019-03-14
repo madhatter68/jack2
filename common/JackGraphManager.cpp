@@ -24,7 +24,14 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 #include <assert.h>
 #include <stdlib.h>
 #include <algorithm>
-//#include <regex.h>
+
+#define USE_STD_REGEX 1
+#if USE_STD_REGEX
+#include <regex>
+#else
+#include <regex.h>
+#endif
+
 
 namespace Jack
 {
@@ -809,8 +816,41 @@ void JackGraphManager::GetPortsAux(const char** matching_ports, const char* port
 {
     // Cleanup port array
     memset(matching_ports, 0, sizeof(char*) * fPortMax);
-#if 0 // FIXME: Temporary workaround to build on Visual Studio 2017
     int match_cnt = 0;
+#if USE_STD_REGEX
+    for (unsigned int i = 0; i < fPortMax; i++) {
+        bool matching = true;
+        JackPort* port = GetPort(i);
+
+        if (port->IsUsed()) {
+
+            if (flags) {
+                if ((port->fFlags & flags) != flags) {
+                    matching = false;
+                }
+            }
+
+            if (matching && port_name_pattern && port_name_pattern[0]) {
+                std::regex port_regex(port_name_pattern, std::regex_constants::extended);
+                if (!regex_search(port->GetName(), port_regex)) {
+                    matching = false;
+                }
+            }
+            if (matching && type_name_pattern && type_name_pattern[0]) {
+                std::regex type_regex(type_name_pattern, std::regex_constants::extended);
+                if (!regex_search(port->GetName(), type_regex)) {
+                    matching = false;
+                }
+            }
+
+            if (matching) {
+                matching_ports[match_cnt++] = port->fName;
+            }
+        }
+    }
+
+    matching_ports[match_cnt] = 0;
+#else
     regex_t port_regex, type_regex;
 
     if (port_name_pattern && port_name_pattern[0]) {
