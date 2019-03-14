@@ -15,19 +15,19 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\ASIOSDK2\common\combase.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\ASIOSDK2\common\dllentry.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="JackRouter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="profport.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\ASIOSDK2\common\register.cpp">
+    <ClCompile Include="..\..\..\ASIOSDK2.3.2\common\combase.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\ASIOSDK2.3.2\common\dllentry.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\ASIOSDK2.3.2\common\register.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -37,22 +37,16 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\common\asio.h">
+    <ClInclude Include="..\..\..\ASIOSDK2.3.2\common\asio.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Common\Asiodrvr.h">
+    <ClInclude Include="..\..\..\ASIOSDK2.3.2\common\asiosys.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\asiosmpl.h">
+    <ClInclude Include="..\..\..\ASIOSDK2.3.2\common\combase.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\common\asiosys.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\common\combase.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\common\iasiodrv.h">
+    <ClInclude Include="..\..\..\ASIOSDK2.3.2\common\iasiodrv.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

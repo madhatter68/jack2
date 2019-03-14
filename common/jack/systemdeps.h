@@ -70,12 +70,12 @@ Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
         #define __inline__ inline
         #if (!defined(int8_t) && !defined(_STDINT_H))
             #define __int8_t_defined
-            typedef char int8_t;
+            typedef signed char int8_t;
             typedef unsigned char uint8_t;
             typedef short int16_t;
             typedef unsigned short uint16_t;
-            typedef long int32_t;
-            typedef unsigned long uint32_t;
+            typedef int int32_t;
+            typedef unsigned int uint32_t;
             typedef LONGLONG int64_t;
             typedef ULONGLONG uint64_t;
         #endif
