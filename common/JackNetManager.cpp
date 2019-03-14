@@ -367,7 +367,8 @@ namespace Jack
 
     bool JackNetMaster::IsSlaveReadyToRoll()
     {
-        return (fReturnTransportData.fState == JackTransportNetStarting);
+        //return (fReturnTransportData.fState == JackTransportNetStarting);
+        return true;
     }
 
     int JackNetMaster::SetBufferSize(jack_nframes_t nframes, void* arg)
