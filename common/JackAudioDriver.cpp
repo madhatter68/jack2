@@ -246,20 +246,20 @@ Used when the driver works in master mode.
 void JackAudioDriver::ProcessGraphAsyncMaster()
 {
     // fBeginDateUst is set in the "low level" layer, fEndDateUst is from previous cycle
-    if (!fEngine->Process(fBeginDateUst, fEndDateUst)) {
+    if (fEngine->Process(fBeginDateUst, fEndDateUst)) {
+        if (ResumeRefNum() < 0) {
+            jack_error("JackAudioDriver::ProcessGraphAsyncMaster: ResumeRefNum error");
+        }
+
+        if (ProcessReadSlaves() < 0) {
+            jack_error("JackAudioDriver::ProcessGraphAsyncMaster: ProcessReadSlaves error");
+        }
+
+        if (ProcessWriteSlaves() < 0) {
+            jack_error("JackAudioDriver::ProcessGraphAsyncMaster: ProcessWriteSlaves error");
+        }
+    } else {
         jack_error("JackAudioDriver::ProcessGraphAsyncMaster: Process error");
-    }
-
-    if (ResumeRefNum() < 0) {
-        jack_error("JackAudioDriver::ProcessGraphAsyncMaster: ResumeRefNum error");
-    }
-
-    if (ProcessReadSlaves() < 0) {
-        jack_error("JackAudioDriver::ProcessGraphAsyncMaster: ProcessReadSlaves error");
-    }
-
-    if (ProcessWriteSlaves() < 0) {
-        jack_error("JackAudioDriver::ProcessGraphAsyncMaster: ProcessWriteSlaves error");
     }
 
     // Does not wait on graph execution end
